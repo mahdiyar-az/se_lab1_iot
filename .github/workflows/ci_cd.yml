@@ -1,0 +1,23 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # این قسمت برای هر کامیت در شاخه اصلی (main) فعال می‌شود.
+  pull_request:
+    branches:
+      - main  # این قسمت برای هر PR که به شاخه اصلی ارسال می‌شود فعال می‌شود.
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: دریافت سورس‌کد
+        uses: actions/checkout@v3
+
+      - name: استقرار به محیط staging
+        run: |
+          echo "Deploying to staging environment..."
+          # اضافه کردن دستورات استقرار به محیط staging مانند SSH به سرور یا هر ابزار استقرار دیگر
+
