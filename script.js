@@ -1,20 +1,18 @@
 // Mock sensor data
-const sensorData = [
-    { id: 1, name: "Temperature Sensor", value: "25°C" },
-    { id: 2, name: "Humidity Sensor", value: "60%" },
-    { id: 3, name: "Light Sensor", value: "300 lux" },
-    { id: 4, name: "Motion Sensor", value: "No motion" },
-];
+    const sensorData = [
+        { id: 1, name: "Temperature Sensor", value: "25°C" },
+        { id: 2, name: "Humidity Sensor", value: "60%" },
+        { id: 3, name: "Light Sensor", value: "300 lux" },
+        { id: 4, name: "Motion Sensor", value: "No motion" },
+    ];
 
 // Function to display sensor data
 function displaySensorData() {
     const sensorDataContainer = document.getElementById("sensor-data");
-
     if (!sensorDataContainer) {
         console.error("Sensor data container not found!");
         return;
     }
-
     // Clear existing content
     sensorDataContainer.innerHTML = "";
 
@@ -38,6 +36,15 @@ function updateSensorData() {
     // Re-render the sensor data
     displaySensorData();
 }
+
+// Initial display of sensor data
+displaySensorData();
+
+// Set interval to update sensor data every 5 seconds
+setInterval(updateSensorData, 5000);
+
+
+module.exports = { sensorData, updateSensorData, displaySensorData };
 
 // Export functions and data for testing
 module.exports = { sensorData, updateSensorData, displaySensorData };
