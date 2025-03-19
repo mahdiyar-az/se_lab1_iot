@@ -10,6 +10,11 @@ const sensorData = [
 function displaySensorData() {
     const sensorDataContainer = document.getElementById("sensor-data");
 
+    if (!sensorDataContainer) {
+        console.error("Sensor data container not found!");
+        return;
+    }
+
     // Clear existing content
     sensorDataContainer.innerHTML = "";
 
@@ -34,8 +39,5 @@ function updateSensorData() {
     displaySensorData();
 }
 
-// Initial display of sensor data
-displaySensorData();
-
-// Set interval to update sensor data every 5 seconds
-setInterval(updateSensorData, 5000);
+// Export functions and data for testing
+module.exports = { sensorData, updateSensorData, displaySensorData };
